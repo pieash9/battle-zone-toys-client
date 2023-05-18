@@ -1,4 +1,3 @@
-import React from "react";
 
 const Gallery = () => {
   const galleryItems = [
@@ -58,7 +57,7 @@ const Gallery = () => {
         <div className="container mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-5 text-blue-500 text-center">
-              Action Figure Showcase
+              Action Figures Showcase
             </h2>
             <p className="text-gray-500 md:w-2/3 mx-auto">
               Discover a captivating collection of action figures that embody
@@ -67,7 +66,7 @@ const Gallery = () => {
               craftsmanship.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {galleryItems.map((item, index) => (
               <div
                 key={index}
