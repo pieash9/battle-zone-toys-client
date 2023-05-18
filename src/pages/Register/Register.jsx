@@ -36,7 +36,7 @@ const Login = () => {
       createUser(email, password)
         .then((result) => {
           updateUser(name, photoURL)
-            .then((result) => {
+            .then(() => {
             //   console.log(result.user);
             })
             .catch((err) => console.log(err));
