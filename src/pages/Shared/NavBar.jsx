@@ -63,7 +63,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 font-medium">{navItems}</ul>
       </div>
       <div className="navbar-end ">
-        <li className="btn">user</li>
+        <Link to='/login' className="btn">login</Link>
         {/* {!user ? (
           <Link to="/login" className="btn btn-primary mr-4">
             Login
