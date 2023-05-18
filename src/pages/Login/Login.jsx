@@ -3,25 +3,25 @@
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import GoogleLogin from "../Shared/GoogleLogin";
 
 const Login = () => {
-
   const [show, setShow] = useState(true);
-  const [error,setError] = useState(" ")
+  const [error, setError] = useState(" ");
 
   const handleShowPass = () => {
     setShow(!show);
   };
   const handleLogin = (e) => {
-    setError(" ")
+    setError(" ");
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
 
-    if(password.length <6){
-        setError("Password Must be more than 6 characters")
+    if (password.length < 6) {
+      setError("Password Must be more than 6 characters");
     }
   };
   return (
@@ -31,7 +31,9 @@ const Login = () => {
           <h2 className="text-3xl font-semibold text-gray-600 mb-3">Login</h2>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email <span className="text-red-500">*</span></span>
+              <span className="label-text">
+                Email <span className="text-red-500">*</span>
+              </span>
             </label>
             <input
               name="email"
@@ -43,7 +45,9 @@ const Login = () => {
           </div>
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text">Password <span className="text-red-500">*</span></span>
+              <span className="label-text">
+                Password <span className="text-red-500">*</span>
+              </span>
             </label>
             <input
               name="password"
@@ -66,8 +70,8 @@ const Login = () => {
               )}
             </div>
             {/* Show error  */}
-           {error && <p className="text-warning ">{error}</p>}
-            <div className="label mb-3">
+            {error && <p className="text-warning ">{error}</p>}
+            <div className="label">
               <input
                 className="checkbox checkbox-accent checkbox-sm mr-2"
                 type="checkbox"
@@ -99,6 +103,8 @@ const Login = () => {
               Create Account
             </Link>
           </p>
+
+          <GoogleLogin />
         </form>
       </div>
     </div>
