@@ -2,10 +2,12 @@
 
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import GoogleLogin from "../Shared/GoogleLogin";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+    const {singInWithEmail} = useContext(AuthContext)
   const [show, setShow] = useState(true);
   const [error, setError] = useState(" ");
 
@@ -22,6 +24,19 @@ const Login = () => {
 
     if (password.length < 6) {
       setError("Password Must be more than 6 characters");
+      return
+    }else if(!/(?=.*[0-9].*[0-9])/.test(password)){
+        setError("Password should have at least one Number")
+        return
+    }else{
+        singInWithEmail(email,password)
+        .then(result=>{
+            console.log(result.user)
+        })
+        .then(err=>{
+            console.log(err)
+            setError("Something went wrong please try again!")
+        })
     }
   };
   return (
@@ -56,6 +71,7 @@ const Login = () => {
               className="input-form mb-2"
               required
             />
+            <small className="text-gray-500">Password must be more than 6 characters and at least one number</small>
             <div className="absolute mt-12 right-5 cursor-pointer">
               {show ? (
                 <FaEyeSlash
@@ -65,7 +81,7 @@ const Login = () => {
               ) : (
                 <FaEye
                   onClick={handleShowPass}
-                  className="w-5 h-5 text-gray-700"
+                  className="w-5 h-5 text-gray-600"
                 />
               )}
             </div>

@@ -1,15 +1,16 @@
 // import React from 'react';
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
-//   const { user, logOut } = useContext(AuthContext);
-//   const handleLogout = () => {
-//     logOut()
-//       .then(() => {})
-//       .catch((err) => console.log(err));
-//   };
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
   const navItems = (
     <>
       <li>
@@ -26,11 +27,11 @@ const NavBar = () => {
       </li>
       <li>
         <Link to="/blogs">Blogs</Link>
-      </li>      
+      </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar justify-between bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,29 +57,43 @@ const NavBar = () => {
             {navItems}
           </ul>
         </div>
-        <img className="w-20" src="https://i.ibb.co/ft8gVhY/image-2-Ihtuhl3-transformed.png" alt="" />
-        <h3 className="font-semibold text-gray-700 text-lg  md:text-2xl ml-0.5 md:ml-2 text-center"><span className="whitespace-nowrap">Battle Zone</span> Toys</h3>
+        <img
+          className="md:w-20 w-16"
+          src="https://i.ibb.co/ft8gVhY/image-2-Ihtuhl3-transformed.png"
+          alt=""
+        />
+        <h3 className="font-semibold text-gray-700 text-lg  md:text-2xl ml-0.5 md:ml-2 text-center">
+          <span className="whitespace-nowrap">Battle Zone</span> Toys
+        </h3>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium">{navItems}</ul>
       </div>
-      <div className="navbar-end ">
-        <Link to='/login' className="btn">login</Link>
-        {/* {!user ? (
-          <Link to="/login" className="btn btn-primary mr-4">
-            Login
+      <div className=" ">
+        {/* avatar */}
+
+        {!user ? (
+          <Link to="/login" >
+            <button className="button-primary">Login</button>
           </Link>
         ) : (
-          <Link
-            onClick={handleLogout}
-            to="/login"
-            className="btn btn-error mr-4"
-          >
-            Logout
-          </Link>
-        )} */}
-        
-    
+          <>
+            <div className="avatar mr-2">
+              <div className="w-11 rounded-full border-2 border-blue-500">
+                <img
+                  src={`${
+                    user?.photoURL
+                      ? user?.photoURL
+                      : "https://i.ibb.co/fSHmDMK/image.png"
+                  }`}
+                />
+              </div>
+            </div>
+            <button onClick={handleLogout} className="button-primary">
+              Logout
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
