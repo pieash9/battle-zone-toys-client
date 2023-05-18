@@ -16,24 +16,17 @@ const NavBar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/donation">Donation</Link>
+        <Link to="/allToys">All Toys</Link>
       </li>
       <li>
-        <Link to="/myEvents">My Events</Link>
+        <Link to="/myToys">My Toys</Link>
       </li>
       <li>
-        <Link to="/blog">Blog</Link>
+        <Link to="/addAToy">Add A Toy</Link>
       </li>
       <li>
-        <Link to="/addEvents">
-          Add events
-        </Link>
-      </li>
-      <li>
-        <Link to="/volunteerList">
-          Volunteer list
-        </Link>
-      </li>
+        <Link to="/blogs">Blogs</Link>
+      </li>      
     </>
   );
   return (
@@ -58,18 +51,19 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content font-medium mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navItems}
           </ul>
         </div>
         <img className="w-20" src="https://i.ibb.co/ft8gVhY/image-2-Ihtuhl3-transformed.png" alt="" />
-        <h3 className="font-semibold text-gray-700 text-2xl ml-2">Battle Zone Toys</h3>
+        <h3 className="font-semibold text-gray-700 text-lg  md:text-2xl ml-0.5 md:ml-2 text-center"><span className="whitespace-nowrap">Battle Zone</span> Toys</h3>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navItems}</ul>
+        <ul className="menu menu-horizontal px-1 font-medium">{navItems}</ul>
       </div>
       <div className="navbar-end ">
+        <li className="btn">user</li>
         {/* {!user ? (
           <Link to="/login" className="btn btn-primary mr-4">
             Login
