@@ -20,14 +20,15 @@ const NavBar = () => {
         <Link to="/allToys">All Toys</Link>
       </li>
       <li>
-        <Link to="/myToys">My Toys</Link>
-      </li>
-      <li>
-        <Link to="/addAToy">Add A Toy</Link>
-      </li>
-      <li>
         <Link to="/blogs">Blogs</Link>
       </li>
+      <li>
+        {user && <Link to="/myToys">My Toys</Link>}
+      </li>
+      <li>
+        {user && <Link to="/addAToy">Add A Toy</Link>}
+      </li>
+      
     </>
   );
   return (
@@ -73,12 +74,15 @@ const NavBar = () => {
         {/* avatar */}
 
         {!user ? (
-          <Link to="/login" >
+          <Link to="/login">
             <button className="button-primary">Login</button>
           </Link>
         ) : (
           <>
-            <div className="avatar mr-2">
+            <div
+              className="avatar mr-2 tooltip tooltip-bottom"
+              data-tip={user?.displayName || "Anonymous"}
+            >
               <div className="w-11 rounded-full border-2 border-blue-500">
                 <img
                   src={`${
@@ -89,7 +93,10 @@ const NavBar = () => {
                 />
               </div>
             </div>
-            <button onClick={handleLogout} className="button-primary">
+            <button
+              onClick={handleLogout}
+              className="button-primary bg-gray-500 hover:bg-gray-600"
+            >
               Logout
             </button>
           </>

@@ -5,39 +5,38 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import GoogleLogin from "../Shared/GoogleLogin";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {singInWithEmail} = useContext(AuthContext)
+  const { singInWithEmail } = useContext(AuthContext);
   const [show, setShow] = useState(true);
-  const [error, setError] = useState(" ");
 
   const handleShowPass = () => {
     setShow(!show);
   };
   const handleLogin = (e) => {
-    setError(" ");
+
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
 
-    if (password.length < 6) {
-      setError("Password Must be more than 6 characters");
-      return
-    }else if(!/(?=.*[0-9].*[0-9])/.test(password)){
-        setError("Password should have at least one Number")
-        return
-    }else{
-        singInWithEmail(email,password)
-        .then(result=>{
-            console.log(result.user)
-        })
-        .then(err=>{
-            console.log(err)
-            setError("Something went wrong please try again!")
-        })
-    }
+    singInWithEmail(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+            icon: "success",
+            title: "Login success",
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+            icon: "error",
+            title: "Something went wrong. Please Provide valid Information.",
+          });
+      });
   };
   return (
     <div className="mt-5 mb-10">
@@ -71,7 +70,7 @@ const Login = () => {
               className="input-form mb-2"
               required
             />
-            <small className="text-gray-500">Password must be more than 6 characters and at least one number</small>
+
             <div className="absolute mt-12 right-5 cursor-pointer">
               {show ? (
                 <FaEyeSlash
@@ -85,24 +84,14 @@ const Login = () => {
                 />
               )}
             </div>
-            {/* Show error  */}
-            {error && <p className="text-warning ">{error}</p>}
+
             <div className="label">
               <input
                 className="checkbox checkbox-accent checkbox-sm mr-2"
                 type="checkbox"
-                required
+                
               />
-              <p>
-                Accept{" "}
-                <span className="text-blue-500 font-medium cursor-pointer">
-                  Terms
-                </span>{" "}
-                and{" "}
-                <span className="text-blue-500 font-medium cursor-pointer">
-                  Conditions
-                </span>
-              </p>
+              <p>Remember password</p>
             </div>
           </div>
           <div className="form-control">

@@ -5,9 +5,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import GoogleLogin from "../Shared/GoogleLogin";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {createUser} = useContext(AuthContext)
+  const { createUser, updateUser } = useContext(AuthContext);
   const [show, setShow] = useState(true);
   const [error, setError] = useState(" ");
 
@@ -19,32 +20,48 @@ const Login = () => {
     setError(" ");
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    const photoURL = form.photoURL.value;
+    console.log(name, email, password, photoURL);
 
     if (password.length < 6) {
       setError("Password Must be more than 6 characters");
-      return
-    }else if(!/(?=.*[0-9].*[0-9])/.test(password)){
-        setError("Password should have at least one Number")
-        return
-    }else{
-        singInWithEmail(email,password)
-        .then(result=>{
-            console.log(result.user)
+      return;
+    } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+      setError("Password should have at least one Number");
+      return;
+    } else {
+      createUser(email, password)
+        .then((result) => {
+          updateUser(name, photoURL)
+            .then((result) => {
+            //   console.log(result.user);
+            })
+            .catch((err) => console.log(err));
+          Swal.fire({
+            icon: "success",
+            title: "Registration success",
+          });
+          console.log(result.user);
         })
-        .then(err=>{
-            console.log(err)
-            setError("Something went wrong please try again!")
-        })
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Something went wrong. Please try again.",
+          });
+        });
     }
   };
   return (
     <div className="mt-5 mb-10">
       <div className="card flex-shrink-0 md:w-1/2 w-full mx-auto  shadow-2xl bg-base-100">
         <form onSubmit={handleRegister} className="card-body">
-          <h2 className="text-3xl font-semibold text-gray-600 mb-3">Register Now</h2>
+          <h2 className="text-3xl font-semibold text-gray-600 mb-3">
+            Register Now
+          </h2>
           {/* name */}
           <div className="form-control">
             <label className="label">
@@ -88,7 +105,9 @@ const Login = () => {
               className="input-form mb-2"
               required
             />
-            <small className="text-gray-500">Password must be more than 6 characters and at least one number</small>
+            <small className="text-gray-500">
+              Password must be more than 6 characters and at least one number
+            </small>
             <div className="absolute mt-12 right-5 cursor-pointer">
               {show ? (
                 <FaEyeSlash
@@ -105,20 +124,20 @@ const Login = () => {
             {/* Show error  */}
             {error && <p className="text-warning ">{error}</p>}
             {/* Photo URL */}
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">
-                Photo URL <span className="text-red-500">*</span>
-              </span>
-            </label>
-            <input
-              name="photoURL"
-              type="url"
-              placeholder="Photo URL"
-              className="input-form"
-              required
-            />
-          </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">
+                  Photo URL <span className="text-red-500">*</span>
+                </span>
+              </label>
+              <input
+                name="photoURL"
+                type="url"
+                placeholder="Photo URL"
+                className="input-form"
+                required
+              />
+            </div>
             <div className="label">
               <input
                 className="checkbox checkbox-accent checkbox-sm mr-2"
@@ -139,7 +158,7 @@ const Login = () => {
           </div>
           <div className="form-control">
             <button type="submit" className="button-primary w-full">
-            Register
+              Register
             </button>
           </div>
           <p className="mt-3">
