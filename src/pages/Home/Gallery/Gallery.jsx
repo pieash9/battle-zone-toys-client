@@ -53,10 +53,10 @@ const Gallery = () => {
 
   return (
     <>
-      <section>
+      <section className="font-montserrat">
         <div className="container mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-3 text-blue-500 text-center">
+            <h2 className="text-2xl font-bold mb-3 text-blue-500 text-center">
               Action Figures Showcase
             </h2>
             <p className="text-gray-500 md:w-2/3 mx-auto">
@@ -77,7 +77,7 @@ const Gallery = () => {
                   alt={item.title}
                   className="w-full h-64 object-cover object-top rounded-t-lg"
                 />
-                <div className="absolute p-5 top-0 left-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 flex flex-col justify-center items-center text-center hover:opacity-100 opacity-0">
+                <div className="absolute p-5 top-0 left-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-60 transition-opacity duration-300 flex flex-col justify-center items-center text-center hover:opacity-100 opacity-0">
                   <div className="">
                     <h3 className="text-lg font-semibold text-white mb-2">
                       {item.title}
