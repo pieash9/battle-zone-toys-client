@@ -53,10 +53,10 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="py-16 ">
+      <section>
         <div className="container mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-5 text-blue-500 text-center">
+            <h2 className="text-3xl font-bold mb-3 text-blue-500 text-center">
               Action Figures Showcase
             </h2>
             <p className="text-gray-500 md:w-2/3 mx-auto">
