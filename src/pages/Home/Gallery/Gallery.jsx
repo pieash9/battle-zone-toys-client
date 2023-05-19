@@ -66,7 +66,7 @@ const Gallery = () => {
               craftsmanship.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="bg-gray-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {galleryItems.map((item, index) => (
               <div
                 key={index}
@@ -75,7 +75,7 @@ const Gallery = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-64 object-cover object-top rounded-t-lg"
+                  className="w-full h-64  rounded-t-lg"
                 />
                 <div className="absolute p-5 top-0 left-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-60 transition-opacity duration-300 flex flex-col justify-center items-center text-center hover:opacity-100 opacity-0">
                   <div className="">
