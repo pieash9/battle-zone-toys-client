@@ -27,10 +27,10 @@ const TableRow = ({toy,handleViewDetails}) => {
 
       </td>
       <td className="capitalize">{subCategory}</td>
-      <td >{price}</td>
+      <td >${price}</td>
       <td>{availableQuantity}</td>
       <th>
-      <Link to={`/viewDetails/${_id}`}>
+      <Link to={`/allToys/details/${_id}`}>
         <button onClick={()=>handleViewDetails(_id)} className="button-primary !font-semibold !py-1">Details</button>
         </Link>
       </th>

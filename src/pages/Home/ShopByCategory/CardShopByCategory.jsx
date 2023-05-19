@@ -29,7 +29,7 @@ const CardShopByCategory = ({ category, handleViewDetails }) => {
             </p>
           </div>
 
-          <Link to={`/viewDetails/${_id}`}>
+          <Link to={`/allToys/details/${_id}`}>
             <button
               onClick={() => handleViewDetails(_id)}
               className="button-primary mt-3 "
