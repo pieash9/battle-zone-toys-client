@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import ViwDetails from "../pages/Shared/ViwDetails";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
+import AllToys from "../pages/AllToys/AllToys";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/allToys",
+        element: <AllToys />,
+        loader:()=> fetch(`http://localhost:5000/allToys`)
       },
       {
         path: "/viewDetails/:id",

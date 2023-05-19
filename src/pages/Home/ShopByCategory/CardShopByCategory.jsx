@@ -13,8 +13,8 @@ const CardShopByCategory = ({ category, handleViewDetails }) => {
         <img src={pictureURL} alt={name} className="w-full h-64 " />
 
         <div className="px-6 py-4">
-          <div className="font-bold text-gray-700 text-xl mb-2">{name}</div>
-          <p className="text-gray-600 text-base">${price}</p>
+          <h3 className="font-bold text-gray-600 text-xl mb-2">{name}</h3>
+          <p className="text-gray-700 text-lg font-semibold">${price}</p>
 
           <div className="flex items-center mt-2 gap-2">
             <Rating
