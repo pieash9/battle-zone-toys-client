@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import GoogleLogin from "../Shared/GoogleLogin";
@@ -11,11 +11,15 @@ const Login = () => {
   const { singInWithEmail } = useContext(AuthContext);
   const [show, setShow] = useState(true);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
+
   const handleShowPass = () => {
     setShow(!show);
   };
   const handleLogin = (e) => {
-
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -23,19 +27,20 @@ const Login = () => {
     console.log(email, password);
 
     singInWithEmail(email, password)
+      // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        console.log(result.user);
+        navigate(from, { replace: true });
         Swal.fire({
-            icon: "success",
-            title: "Login success",
-          });
+          icon: "success",
+          title: "Login success",
+        });
       })
       .catch((err) => {
         console.log(err);
         Swal.fire({
-            icon: "error",
-            title: "Something went wrong. Please Provide valid Information.",
-          });
+          icon: "error",
+          title: "Something went wrong. Please Provide valid Information.",
+        });
       });
   };
   return (
@@ -89,7 +94,6 @@ const Login = () => {
               <input
                 className="checkbox checkbox-accent checkbox-sm mr-2"
                 type="checkbox"
-                
               />
               <p>Remember password</p>
             </div>

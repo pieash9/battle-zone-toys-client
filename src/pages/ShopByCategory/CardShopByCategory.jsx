@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { FaRegStar, FaStar,  } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
-const CardShopByCategory = ({ category }) => {
-  const { pictureURL, name, price, rating } = category || {};
- 
+const CardShopByCategory = ({ category, handleViewDetails }) => {
+  const { _id, pictureURL, name, price, rating } = category || {};
+
   return (
     <div className="p-2 bg-gray-100 border border-gray-200 rounded">
       <div className="max-w-xs rounded overflow-hidden shadow-xl  ">
@@ -28,7 +29,14 @@ const CardShopByCategory = ({ category }) => {
             </p>
           </div>
 
-          <button className="button-primary mt-3">View Details</button>
+          <Link to={`/viewDetails/${_id}`}>
+            <button
+              onClick={() => handleViewDetails(_id)}
+              className="button-primary mt-3 "
+            >
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

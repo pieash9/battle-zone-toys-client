@@ -16,6 +16,11 @@ const ShopByCategory = () => {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
+  // view details handler
+  const handleViewDetails = (id) => {
+    console.log(id);
+  };
+
   return (
     <div>
       <div className="text-center mb-10">
@@ -56,7 +61,11 @@ const ShopByCategory = () => {
         <TabPanel className="mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {categoryData?.map((category) => (
-              <CardShopByCategory key={category._id} category={category} />
+              <CardShopByCategory
+                key={category._id}
+                category={category}
+                handleViewDetails={handleViewDetails}
+              />
             ))}
           </div>
         </TabPanel>
@@ -64,7 +73,11 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {categoryData?.map((category) => (
-              <CardShopByCategory key={category._id} category={category} />
+              <CardShopByCategory
+                key={category._id}
+                category={category}
+                handleViewDetails={handleViewDetails}
+              />
             ))}
           </div>
         </TabPanel>
@@ -72,7 +85,11 @@ const ShopByCategory = () => {
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {categoryData?.map((category) => (
-              <CardShopByCategory key={category._id} category={category} />
+              <CardShopByCategory
+                key={category._id}
+                category={category}
+                handleViewDetails={handleViewDetails}
+              />
             ))}
           </div>
         </TabPanel>
