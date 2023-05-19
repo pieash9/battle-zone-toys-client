@@ -4,7 +4,8 @@ import Services from "../Services/Services";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
-import ExcitingScenarios from "../../ExcitingScenarios/ExcitingScenarios";
+import ExcitingScenarios from "../ExcitingScenarios/ExcitingScenarios";
+
 
 const Home = () => {
     return (
