@@ -92,6 +92,8 @@ const Login = () => {
               required
             />
           </div>
+
+          {/* password  */}
           <div className="form-control relative">
             <label className="label">
               <span className="label-text">
@@ -123,6 +125,7 @@ const Login = () => {
             </div>
             {/* Show error  */}
             {error && <p className="text-warning ">{error}</p>}
+            
             {/* Photo URL */}
             <div className="form-control">
               <label className="label">

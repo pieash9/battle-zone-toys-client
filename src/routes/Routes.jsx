@@ -8,6 +8,7 @@ import ViwDetails from "../pages/Shared/ViwDetails";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
 import AllToys from "../pages/AllToys/AllToys";
+import AddAToy from "../pages/AddAToy/AddAToy";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys />,
+      },
+      {
+        path: "/addAToy",
+        element: <AddAToy />,
       },
       {
         path: "/allToys/details/:id",
