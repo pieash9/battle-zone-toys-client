@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import GoogleLogin from "../Shared/GoogleLogin";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { singInWithEmail } = useContext(AuthContext);
@@ -45,6 +46,9 @@ const Login = () => {
   };
   return (
     <div className="mt-5 mb-10">
+      <Helmet>
+        <title>Battle Zone Toys | Login</title>
+      </Helmet>
       <div className="card flex-shrink-0 md:w-1/2 w-full mx-auto  shadow-2xl bg-base-100">
         <form onSubmit={handleLogin} className="card-body">
           <h2 className="text-3xl font-semibold text-gray-600 mb-3">Login</h2>

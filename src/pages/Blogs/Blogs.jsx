@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Blogs = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
@@ -13,6 +14,9 @@ const Blogs = () => {
 
   return (
     <div className=" py-10 px-4">
+      <Helmet>
+        <title>Battle Zone Toys | Blogs</title>
+      </Helmet>
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-center text-blue-500 mb-6">

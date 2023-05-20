@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Rating from "react-rating";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const ViwDetails = () => {
   const toyData = useLoaderData();
@@ -19,6 +20,9 @@ const ViwDetails = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-start justify-center lg:justify-between mx-4 lg:mx-auto py-8 lg:py-12">
+      <Helmet>
+        <title>Battle Zone Toys | View Details</title>
+      </Helmet>
       <div className="w-full lg:w-1/2">
         <img
           src={pictureURL}

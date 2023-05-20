@@ -37,7 +37,7 @@ const ModalUpdateDetails = ({ toy,toggleVisible }) => {
   };
   return (
     <div>
-      <h2 className="text-2xl text-center font-semibold text-gray-600 mb-8">
+      <h2 className="text-2xl  whitespace-break-spaces text-center font-semibold text-gray-600 mb-8">
         Update Toy Details : <span className=" text-blue-500">{name}</span>
       </h2>
       

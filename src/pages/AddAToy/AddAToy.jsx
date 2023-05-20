@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
@@ -57,13 +58,16 @@ const AddAToy = () => {
   };
 
   return (
-    <div className="md:mb-16 mb-10">
+    <div className="mb-16 mt-10 mx-3 md:mx-0">
+      <Helmet>
+        <title>Battle Zone Toys | Add A Toy</title>
+      </Helmet>
       <h2 className="text-3xl text-center font-semibold text-blue-500 mb-8">
         Add a Toy
       </h2>
       <form onSubmit={handleSubmit} className="md:w-3/4 mx-auto space-y-4">
         {/* 1 Toy name, Image URL */}
-        <div className="md:flex gap-10 md:px-0 px-2">
+        <div className="md:flex gap-10 md:px-0 ">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">
@@ -96,7 +100,7 @@ const AddAToy = () => {
         </div>
 
         {/* 2 Seller name and seller email */}
-        <div className="md:flex gap-10 md:px-0 px-2">
+        <div className="md:flex gap-10 md:px-0 ">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">
@@ -131,7 +135,7 @@ const AddAToy = () => {
         </div>
 
         {/* 3 sub category and price */}
-        <div className="md:flex gap-10 md:px-0 px-2">
+        <div className="md:flex gap-10 md:px-0 ">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">
@@ -170,7 +174,7 @@ const AddAToy = () => {
 
         {/* 4 Rating and Available quantity */}
 
-        <div className="md:flex gap-10 md:px-0 px-2">
+        <div className="md:flex gap-10 md:px-0 ">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">
@@ -203,7 +207,7 @@ const AddAToy = () => {
         </div>
 
         {/* Detail description */}
-        <div className="md:flex gap-10 md:px-0 px-2">
+        <div className="md:flex gap-10 md:px-0 ">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">

@@ -1,6 +1,7 @@
 import TableRow from "./TableRow";
 import { RiSearch2Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const AllToys = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,6 +25,9 @@ const AllToys = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Battle Zone Toys | All Toys</title>
+      </Helmet>
       <h3 className="text-3xl text-blue-500 my-7 text-center font-semibold">
         All Toys
       </h3>

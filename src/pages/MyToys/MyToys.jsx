@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToyTableRow from "./MyToyTableRow";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const MyToys = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>Battle Zone Toys | My Toys</title>
+      </Helmet>
       <h3 className="text-3xl text-blue-500 my-7 text-center font-semibold">
         My Toys
       </h3>

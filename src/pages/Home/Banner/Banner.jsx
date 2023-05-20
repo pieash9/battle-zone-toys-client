@@ -10,7 +10,7 @@ const Banner = () => {
         />
         <div className="absolute  flex items-center    h-full gap-5 left-0 top-0 bg-gradient-to-r from-black/50 to-black/50">
           <div className="text-white space-y-5 text-center">
-            <h2 className="md:text-6xl text-4xl font-bold md:w-1/2 w-full mx-auto">
+            <h2  className="md:text-6xl text-4xl font-bold md:w-1/2 w-full mx-auto">
               Explore an Exciting Collection
             </h2>
             <p className="md:w-2/3  w-full px-2 md:px-0 mx-auto ">
@@ -20,7 +20,7 @@ const Banner = () => {
               taste.
             </p>
 
-            <div className="text-center">
+            <div className="text-center" >
               <button className="button-primary !px-7 !py-3 text-xl ">
                 Shop Now
               </button>

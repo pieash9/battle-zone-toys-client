@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import {
   FaClock,
   FaHeadset,
@@ -36,6 +34,7 @@ const Services = () => {
                 start enjoying your toys without delay.
               </p>
             </div>
+
             <div className="bg-white rounded-lg p-6 text-center">
               <FaHeadset className="text-3xl text-blue-500 mb-4 mx-auto" />
               <h2 className="text-xl font-bold text-gray-700 mb-3">
@@ -46,6 +45,7 @@ const Services = () => {
                 inquiries or concerns, ensuring your satisfaction.
               </p>
             </div>
+
             <div className="bg-white rounded-lg p-6 text-center">
               <FaCreditCard className="text-3xl text-blue-500 mb-4 mx-auto" />
               <h2 className="text-xl font-bold text-gray-700 mb-3">
@@ -56,14 +56,17 @@ const Services = () => {
                 shopping experience.
               </p>
             </div>
+
             <div className="bg-white rounded-lg p-6 text-center">
-      <AnimatedFaShippingFast className="text-3xl text-blue-500 mb-4 mx-auto" />
-      <h2 className="text-xl font-bold text-gray-700 mb-3">Fast Shipping</h2>
-      <p className="text-sm text-gray-600">
-        Quick and efficient shipping service to ensure you receive your toys in
-        no time.
-      </p>
-    </div>
+              <AnimatedFaShippingFast className="text-3xl text-blue-500 mb-4 mx-auto" />
+              <h2 className="text-xl font-bold text-gray-700 mb-3">
+                Fast Shipping
+              </h2>
+              <p className="text-sm text-gray-600">
+                Quick and efficient shipping service to ensure you receive your
+                toys in no time.
+              </p>
+            </div>
           </div>
         </div>
       </div>

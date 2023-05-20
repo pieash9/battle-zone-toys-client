@@ -9,7 +9,7 @@ const CardShopByCategory = ({ category, handleViewDetails }) => {
 
   return (
     <div className="p-2 bg-gray-100 border border-gray-200 rounded">
-      <div className="max-w-xs rounded overflow-hidden shadow-xl  ">
+      <div className=" rounded overflow-hidden shadow-xl  ">
         <img src={pictureURL} alt={name} className="w-full h-64 " />
 
         <div className="px-6 py-4">

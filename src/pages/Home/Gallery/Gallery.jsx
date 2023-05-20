@@ -53,7 +53,7 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="font-montserrat">
+      <div className="font-montserrat px-5 md:px-0">
         <div className="container mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold mb-3 text-blue-500 text-center">
@@ -70,14 +70,14 @@ const Gallery = () => {
             {galleryItems.map((item, index) => (
               <div
                 key={index}
-                className="relative transform hover:scale-105 transition-transform duration-300 ease-in-out border rounded p-1"
+                className="relative transform hover:scale-105 transition-transform duration-300 ease-in-out border rounded p-1 "
               >
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-64  rounded-t-lg"
                 />
-                <div className="absolute p-5 top-0 left-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-60 transition-opacity duration-300 flex flex-col justify-center items-center text-center hover:opacity-100 opacity-0">
+                <div className="absolute p-5 top-0 left-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-60 transition-opacity duration-300 flex flex-col justify-center items-center text-center hover:opacity-100 opacity-0 rounded">
                   <div className="">
                     <h3 className="text-lg font-semibold text-white mb-2">
                       {item.title}
@@ -89,7 +89,7 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };

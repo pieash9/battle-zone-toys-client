@@ -22,7 +22,7 @@ const ShopByCategory = () => {
   };
 
   return (
-    <div>
+    <div className="md:mx-0 nx-5">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold mb-3 text-blue-500 text-center">
           Choose your favorite category
@@ -61,7 +61,7 @@ const ShopByCategory = () => {
         <TabPanel className="mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {categoryData?.map((category) => (
-              <CardShopByCategory
+              <CardShopByCategory 
                 key={category._id}
                 category={category}
                 handleViewDetails={handleViewDetails}
