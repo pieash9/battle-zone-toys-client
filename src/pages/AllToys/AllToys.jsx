@@ -1,22 +1,21 @@
-
 import TableRow from "./TableRow";
 import { RiSearch2Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
 
 const AllToys = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [toysData,setToysData] = useState([])
+  const [toysData, setToysData] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:5000/allToys`)
-    .then(res=>res.json())
-    .then(data=>setToysData(data))
-  },[searchTerm])
+      .then((res) => res.json())
+      .then((data) => setToysData(data));
+  }, [searchTerm]);
 
   const handleSearch = () => {
     fetch(`http://localhost:5000/searchByToyName/${searchTerm}`)
-    .then(res=>res.json())
-    .then(data=>setToysData(data))
+      .then((res) => res.json())
+      .then((data) => setToysData(data));
   };
 
   const handleViewDetails = (id) => {
@@ -29,6 +28,7 @@ const AllToys = () => {
         All Toys
       </h3>
 
+      {/* Search box */}
       <div className="flex items-center justify-center mb-10">
         <input
           type="text"
@@ -45,31 +45,33 @@ const AllToys = () => {
         </button>
       </div>
 
-      <div>
-        <div className="overflow-x-auto w-full">
-          <table className="table w-full">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Toy Name</th>
-                <th>Seller</th>
-                <th>Sub-category</th>
-                <th>Price</th>
-                <th>Available Quantity</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {toysData?.map((toy) => (
-                <TableRow
-                  key={toy?._id}
-                  toy={toy}
-                  handleViewDetails={handleViewDetails}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
+      {/* table */}
+
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>Toy Name</th>
+              <th>Seller</th>
+              <th>Sub-category</th>
+              <th>Price</th>
+              <th>Available Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {toysData?.map((toy,i) => (
+              <TableRow
+                key={toy?._id}
+                toy={toy}
+                i={i}
+                handleViewDetails={handleViewDetails}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

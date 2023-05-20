@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const singInWithEmail = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -37,16 +38,19 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUser = (name, photoURL) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
     });
   };
   const logout = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   useEffect(() => {
+    setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       console.log(loggedUser);
       setUser(loggedUser), setLoading(false);

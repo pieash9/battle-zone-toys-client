@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
-  console.log(subCategory);
 
   const SelectCategory = ["marvel", "starWars", "avengers"];
   const handleSelectChange = (e) => {
@@ -40,22 +39,21 @@ const AddAToy = () => {
       subCategory,
       createdAt,
     };
-    console.log(addAToy);
 
     fetch(`http://localhost:5000/addAToy`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addAToy),
     })
-      .then(res=>res.json())
-      .then(data=>{
-        if(data.insertedId){
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
           Swal.fire({
             icon: "success",
             title: "Toy added successfully",
           });
         }
-      })
+      });
   };
 
   return (

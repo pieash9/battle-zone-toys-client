@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const TableRow = ({toy,handleViewDetails,i}) => {
+const MyToyTableRow = ({toy,handleViewDetails,i}) => {
     const { _id, pictureURL, name,sellerName,subCategory,availableQuantity, price} = toy || {}
 
   return (
@@ -39,4 +39,4 @@ const TableRow = ({toy,handleViewDetails,i}) => {
   );
 };
 
-export default TableRow;
+export default MyToyTableRow;
