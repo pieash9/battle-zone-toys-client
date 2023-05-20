@@ -159,7 +159,7 @@ const AddAToy = () => {
             </label>
             <input
               name="price"
-              type="number"
+              type="text"
               placeholder="Price"
               className="input-form w-full"
               required
@@ -178,7 +178,7 @@ const AddAToy = () => {
             </label>
             <input
               name="rating"
-              type="number"
+              type="text"
               placeholder="Rating"
               className="input-form w-full"
               required

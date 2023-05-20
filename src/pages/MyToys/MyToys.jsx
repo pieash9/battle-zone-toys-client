@@ -12,9 +12,7 @@ const MyToys = () => {
       .then((data) => setMyToys(data));
   }, []);
 
-  const handleViewDetails = (id) => {
-    console.log(id);
-  };
+ 
   return (
     <div>
       <h3 className="text-3xl text-blue-500 my-7 text-center font-semibold">
@@ -24,16 +22,16 @@ const MyToys = () => {
       {/* table */}
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
-          {/* head */}
+          {/* head  Price, available quantity, Detail description*/}
           <thead>
             <tr>
               <th>SL</th>
               <th>Toy Name</th>
-              <th>Seller</th>
-              <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
-              <th></th>
+              <th>Detail description</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -42,7 +40,7 @@ const MyToys = () => {
                 key={toy?._id}
                 toy={toy}
                 i={i}
-                handleViewDetails={handleViewDetails}
+               
               />
             ))}
           </tbody>
