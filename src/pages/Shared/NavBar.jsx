@@ -22,13 +22,12 @@ const NavBar = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
-      <li>
-        {user && <Link to="/myToys">My Toys</Link>}
+      <li className={user ? "" : "hidden"}>
+        <Link to="/myToys">My Toys</Link>
       </li>
-      <li>
-        {user && <Link to="/addAToy">Add A Toy</Link>}
+      <li className={user ? "" : "hidden"}>
+        <Link to="/addAToy">Add A Toy</Link>
       </li>
-      
     </>
   );
   return (

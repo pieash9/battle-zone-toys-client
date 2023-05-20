@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
@@ -11,10 +12,10 @@ const AddAToy = () => {
   };
 
   const { user } = useContext(AuthContext);
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const form = e.target;
 
     const pictureURL = form.pictureURL.value;
@@ -25,19 +26,36 @@ const AddAToy = () => {
     const rating = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
     const detailDescription = form.detailDescription.value;
+    const createdAt = new Date();
 
     const addAToy = {
-        pictureURL,
-        name,
-        sellerName,
-        sellerEmail,
-        price,
-        rating,
-        availableQuantity,
-        detailDescription,
-        subCategory,
-      } 
-      console.log(addAToy)
+      pictureURL,
+      name,
+      sellerName,
+      sellerEmail,
+      price,
+      rating,
+      availableQuantity,
+      detailDescription,
+      subCategory,
+      createdAt,
+    };
+    console.log(addAToy);
+
+    fetch(`http://localhost:5000/addAToy`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(addAToy),
+    })
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.insertedId){
+          Swal.fire({
+            icon: "success",
+            title: "Toy added successfully",
+          });
+        }
+      })
   };
 
   return (
