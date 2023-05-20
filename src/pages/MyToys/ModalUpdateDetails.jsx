@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
-const ModalUpdateDetails = ({ toy }) => {
+import Swal from "sweetalert2";
+
+const ModalUpdateDetails = ({ toy,toggleVisible }) => {
   const { _id, name, price, availableQuantity, detailDescription } = toy || {};
 
   const handleUpdate = (e) => {
@@ -20,9 +22,17 @@ const ModalUpdateDetails = ({ toy }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("updated");
+          Swal.fire({
+            icon: "success",
+            title: "Toy added successfully",
+          });                
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Toy Update unsuccessful",
+              }); 
         }
-        console.log(data);
+        
       });
   };
   return (
@@ -30,7 +40,7 @@ const ModalUpdateDetails = ({ toy }) => {
       <h2 className="text-2xl text-center font-semibold text-gray-600 mb-8">
         Update Toy Details : <span className=" text-blue-500">{name}</span>
       </h2>
-      Price, available quantity, Detail description
+      
       <form onSubmit={handleUpdate}>
         {/* 1 Price and Available quantity */}
 
@@ -89,7 +99,7 @@ const ModalUpdateDetails = ({ toy }) => {
           </div>
         </div>
         <div className="mx-auto md:w-1/2 !mt-8">
-          <button type="submit" className="button-primary w-full ">
+          <button onClick={toggleVisible} type="submit" className="button-primary w-full ">
             Update
           </button>
         </div>

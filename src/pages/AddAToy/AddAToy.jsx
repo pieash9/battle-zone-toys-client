@@ -142,6 +142,7 @@ const AddAToy = () => {
               onChange={handleSelectChange}
               className="input-form"
               defaultValue="Select category"
+              required
             >
               <option disabled>Select category</option>
 

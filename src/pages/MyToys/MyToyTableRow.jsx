@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+
 import { Button, Modal } from "react-daisyui";
 import { AiFillDelete } from "react-icons/ai";
 import ModalUpdateDetails from "./ModalUpdateDetails";
-const MyToyTableRow = ({ toy, i }) => {
-  const { _id, pictureURL, name, detailDescription, availableQuantity, price } =
+import { useState } from "react";
+
+
+const MyToyTableRow = ({ toy, i,handleDeleteToy }) => {
+
+  const {_id, pictureURL, name, detailDescription, availableQuantity, price } =
     toy || {};
   const [visible, setVisible] = useState(false);
 
@@ -51,18 +55,19 @@ const MyToyTableRow = ({ toy, i }) => {
           <Button
             size="sm"
             shape="circle"
-            className="absolute right-2 top-2"
+            className="absolute right-2 top-2 btn-error text-white hover:bg-red-500"
             onClick={toggleVisible}
           >
             ✕
           </Button>
-
-          <ModalUpdateDetails toy={toy} />
+          
+          {/* Modal components */}
+          <ModalUpdateDetails toy={toy} toggleVisible={toggleVisible} />
         </Modal>
       </td>
       <td>
         <button
-          // onClick={() => handleDeleteToy(_id)}
+          onClick={() => handleDeleteToy(_id)}
           className="button-primary !font-semibold !py-1  hover:!bg-red-600 bg-red-500"
         >
           <AiFillDelete className="text-2xl " />

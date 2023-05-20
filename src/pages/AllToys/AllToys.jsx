@@ -51,7 +51,7 @@ const AllToys = () => {
         <table className="table w-full">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="active">
               <th>SL</th>
               <th>Toy Name</th>
               <th>Seller</th>
