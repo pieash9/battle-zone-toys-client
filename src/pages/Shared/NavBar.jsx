@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
@@ -14,19 +14,59 @@ const NavBar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+          }
+          style={{ backgroundColor: 'transparent' }} 
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to="/allToys">All Toys</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+          }
+          style={{ backgroundColor: 'transparent' }} 
+          to="/allToys"
+        >
+          All Toys
+        </NavLink>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+          }
+          style={{ backgroundColor: 'transparent' }} 
+          to="/blogs"
+        >
+          Blogs
+        </NavLink>
       </li>
       <li className={user ? "" : "hidden"}>
-        <Link to="/myToys">My Toys</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+          }
+          style={{ backgroundColor: 'transparent' }} 
+          to="/myToys"
+        >
+          My Toys
+        </NavLink>
       </li>
       <li className={user ? "" : "hidden"}>
-        <Link to="/addAToy">Add A Toy</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
+          }
+          style={{ backgroundColor: 'transparent' }} 
+          to="/addAToy"
+        >
+          Add A Toy
+        </NavLink>
       </li>
     </>
   );

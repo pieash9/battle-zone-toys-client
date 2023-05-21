@@ -7,6 +7,7 @@ const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
 
   const SelectCategory = ["marvel", "starWars", "avengers"];
+  
   const handleSelectChange = (e) => {
     setSubCategory(e.target.value);
   };

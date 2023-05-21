@@ -2,21 +2,31 @@ import TableRow from "./TableRow";
 import { RiSearch2Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import LoadingSpinner from "../Shared/LoadingSpinner";
 
 const AllToys = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [toysData, setToysData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/allToys`)
       .then((res) => res.json())
-      .then((data) => setToysData(data));
-  }, [searchTerm]);
+      .then((data) => {
+        setToysData(data);
+        setIsLoading(false);
+      });
+  }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchByToyName/${searchTerm}`)
-      .then((res) => res.json())
-      .then((data) => setToysData(data));
+    if (searchTerm) {
+      fetch(`http://localhost:5000/searchByToyName/${searchTerm}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setToysData(data);
+        });
+    }
   };
 
   const handleViewDetails = (id) => {
@@ -51,11 +61,11 @@ const AllToys = () => {
 
       {/* table */}
 
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full mb-16">
         <table className="table w-full">
           {/* head */}
           <thead>
-            <tr className="active">
+            <tr>
               <th>SL</th>
               <th>Toy Name</th>
               <th>Seller</th>
@@ -66,7 +76,25 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {toysData?.map((toy,i) => (
+            {isLoading ? (
+              <tr>
+                <td colSpan="7" className="text-center">
+                  <LoadingSpinner />
+                </td>
+              </tr>
+            ) : null}
+            {toysData.length < 1 ? (
+              <tr>
+                <td
+                  colSpan="7"
+                  className="text-warning text-center font-semibold text-xl"
+                >
+                  No Data Found
+                </td>
+              </tr>
+            ) : null}
+
+            {toysData?.map((toy, i) => (
               <TableRow
                 key={toy?._id}
                 toy={toy}
