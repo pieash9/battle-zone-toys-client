@@ -16,12 +16,7 @@ const ExcitingScenarios = () => {
     <div className=" py-10 mt-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center">
-          <div
-            className="lg:w-1/2 relative my-10"
-            data-aos="fade-right"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
-          >
+          <div className="lg:w-1/2 relative my-10" data-aos="zoom-in">
             <div className="badge absolute -right-3 md:right-1 font-montserrat font-semibold -mt-4 h-8 px-5 badge-secondary">
               Top Rated
             </div>
@@ -43,9 +38,7 @@ const ExcitingScenarios = () => {
             />
           </div>
 
-          <div className="lg:w-1/2 lg:pl-16 " data-aos="fade-left"
-            data-aos-offset="300"
-            data-aos-easing="ease-in-sine">
+          <div className="lg:w-1/2 lg:pl-16 " data-aos="zoom-in-up">
             <h2 className="text-3xl font-bold text-blue-500 mb-4">
               Exciting Battle Toys
             </h2>
