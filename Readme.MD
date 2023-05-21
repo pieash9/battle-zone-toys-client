@@ -2,14 +2,14 @@
 
 Welcome to the Battle Zone Toys project! This is a web application that offers a wide range of action figures and toys for enthusiasts. Users can browse, search, and purchase their favorite toys, as well as read informative blog articles related to the toy industry.
 
-**Live Demo:** [Battle Zone Toys](https://www.example.com)
+**Live Demo:** [Battle Zone Toys](https://battle-zone-toys.web.app/)
 
 ## Features
 
 - All Toys Page: Allows users to explore and discover a diverse collection of action figures and toys.
 - Add a Toy Page: Enables users to contribute to the store by adding new toys, including details like picture, name, price, and availability.
 - My Toys Page: Provides a personalized section where users can manage their own toy collection, including updating toy details and removing toys.
-- Blogs: Features a variety of blog articles covering topics such as toy reviews, industry news, and collecting tips.
+- Blogs: Features a variety of blog articles covering topics such as Compare SQL and NoSQL databases, express js, next js, access token, MongoDB aggregate.
 - User Authentication: Includes a secure login and registration system to protect user information and enable personalized experiences.
 
 ## Technologies Used
