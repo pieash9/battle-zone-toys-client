@@ -7,7 +7,7 @@ const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
 
   const SelectCategory = ["marvel", "starWars", "avengers"];
-  
+
   const handleSelectChange = (e) => {
     setSubCategory(e.target.value);
   };
@@ -42,7 +42,7 @@ const AddAToy = () => {
       createdAt,
     };
 
-    fetch(`http://localhost:5000/addAToy`, {
+    fetch(`https://battle-zone-toys-server.vercel.app/addAToy`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addAToy),

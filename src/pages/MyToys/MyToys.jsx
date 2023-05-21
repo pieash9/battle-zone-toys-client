@@ -10,7 +10,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [sort, setSort] = useState("1");
   const [isLoading, setIsLoading] = useState(true);
-  console.log(sort);
+  // console.log(sort);
 
   //? Delete a toy item
   const handleDeleteToy = (id) => {
@@ -25,12 +25,14 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setIsLoading(true);
-        fetch(`http://localhost:5000/removeAToy/${id}`, {
+        fetch(`https://battle-zone-toys-server.vercel.app/removeAToy/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              setMyToys(remaining);
               setIsLoading(false);
               Swal.fire("Deleted!", "Your toy has been deleted.", "success");
             }
@@ -46,7 +48,9 @@ const MyToys = () => {
   //? load logged  user data
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/myToys/${user?.email}?sort=${sort}`)
+    fetch(
+      `https://battle-zone-toys-server.vercel.app/myToys/${user?.email}?sort=${sort}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -93,10 +97,23 @@ const MyToys = () => {
             </tr>
           </thead>
           <tbody>
+            {/* loading spinner */}
             {isLoading ? (
               <tr>
                 <td colSpan="7" className="text-center">
                   <LoadingSpinner />
+                </td>
+              </tr>
+            ) : null}
+
+            {/* show error */}
+            {myToys.length < 1 ? (
+              <tr>
+                <td
+                  colSpan="7"
+                  className="text-warning text-center font-semibold text-xl"
+                >
+                  No Data Found
                 </td>
               </tr>
             ) : null}

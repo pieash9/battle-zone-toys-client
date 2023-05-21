@@ -11,7 +11,7 @@ const AllToys = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/allToys`)
+    fetch(`https://battle-zone-toys-server.vercel.app/allToys`)
       .then((res) => res.json())
       .then((data) => {
         setToysData(data);
@@ -21,7 +21,9 @@ const AllToys = () => {
 
   const handleSearch = () => {
     if (searchTerm) {
-      fetch(`http://localhost:5000/searchByToyName/${searchTerm}`)
+      fetch(
+        `https://battle-zone-toys-server.vercel.app/searchByToyName/${searchTerm}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setToysData(data);
@@ -76,6 +78,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
+            {/* loading spinner */}
             {isLoading ? (
               <tr>
                 <td colSpan="7" className="text-center">
@@ -83,6 +86,8 @@ const AllToys = () => {
                 </td>
               </tr>
             ) : null}
+
+            {/* show error */}
             {toysData.length < 1 ? (
               <tr>
                 <td

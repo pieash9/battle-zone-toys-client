@@ -8,7 +8,7 @@ const ShopByCategory = () => {
   const [activeTab, setActiveTab] = useState("marvel");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/${activeTab}`)
+    fetch(`https://battle-zone-toys-server.vercel.app/allToys/${activeTab}`)
       .then((res) => res.json())
       .then((data) => setCategoryData(data));
   }, [activeTab]);
@@ -61,7 +61,7 @@ const ShopByCategory = () => {
         <TabPanel className="mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {categoryData?.map((category) => (
-              <CardShopByCategory 
+              <CardShopByCategory
                 key={category._id}
                 category={category}
                 handleViewDetails={handleViewDetails}

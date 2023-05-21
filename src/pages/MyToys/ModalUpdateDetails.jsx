@@ -2,7 +2,7 @@
 
 import Swal from "sweetalert2";
 
-const ModalUpdateDetails = ({ toy,toggleVisible }) => {
+const ModalUpdateDetails = ({ toy, toggleVisible }) => {
   const { _id, name, price, availableQuantity, detailDescription } = toy || {};
 
   const handleUpdate = (e) => {
@@ -14,7 +14,7 @@ const ModalUpdateDetails = ({ toy,toggleVisible }) => {
 
     const updatedToy = { price, availableQuantity, detailDescription };
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
+    fetch(`https://battle-zone-toys-server.vercel.app/updateToy/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedToy),
@@ -25,14 +25,13 @@ const ModalUpdateDetails = ({ toy,toggleVisible }) => {
           Swal.fire({
             icon: "success",
             title: "Toy added successfully",
-          });                
-        }else{
-            Swal.fire({
-                icon: "error",
-                title: "Toy Update unsuccessful",
-              }); 
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Toy Update unsuccessful",
+          });
         }
-        
       });
   };
   return (
@@ -40,7 +39,7 @@ const ModalUpdateDetails = ({ toy,toggleVisible }) => {
       <h2 className="text-2xl  whitespace-break-spaces text-center font-semibold text-gray-600 mb-8">
         Update Toy Details : <span className=" text-blue-500">{name}</span>
       </h2>
-      
+
       <form onSubmit={handleUpdate}>
         {/* 1 Price and Available quantity */}
 
@@ -99,7 +98,11 @@ const ModalUpdateDetails = ({ toy,toggleVisible }) => {
           </div>
         </div>
         <div className="mx-auto md:w-1/2 !mt-8">
-          <button onClick={toggleVisible} type="submit" className="button-primary w-full ">
+          <button
+            onClick={toggleVisible}
+            type="submit"
+            className="button-primary w-full "
+          >
             Update
           </button>
         </div>

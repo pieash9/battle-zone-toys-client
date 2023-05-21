@@ -61,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/details/${params.id}`),
+          fetch(
+            `https://battle-zone-toys-server.vercel.app/allToys/details/${params.id}`
+          ),
       },
     ],
   },
