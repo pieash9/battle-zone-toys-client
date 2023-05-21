@@ -4,11 +4,16 @@ import { Button, Modal } from "react-daisyui";
 import { AiFillDelete } from "react-icons/ai";
 import ModalUpdateDetails from "./ModalUpdateDetails";
 import { useState } from "react";
+import ReadMoreReact from "read-more-react/dist/components/ReadMoreReact";
 
 const MyToyTableRow = ({ toy, i, handleDeleteToy, setUpdated, updated }) => {
   const { _id, pictureURL, name, detailDescription, availableQuantity, price } =
     toy || {};
   const [visible, setVisible] = useState(false);
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
 
   const toggleVisible = () => {
     setVisible(!visible);
@@ -33,12 +38,21 @@ const MyToyTableRow = ({ toy, i, handleDeleteToy, setUpdated, updated }) => {
       <td>${price}</td>
       <td>{availableQuantity}</td>
       <td className="md:w-1/3">
-        <p className=" whitespace-pre-wrap">
-          {detailDescription.slice(0, 70)}...
-          <span className="hover:text-blue-500 cursor-pointer text-sm">
-            {" "}
-            Read More
-          </span>
+        <p onClick={toggleReadMore} className=" whitespace-pre-wrap">
+          {isReadMore ? detailDescription.slice(0, 70) : detailDescription}
+          {detailDescription.length > 70 && (
+            <span
+              className="text-blue-500 hover:text-blue-600 hover:font-bold cursor-pointer text-sm"
+              onClick={toggleReadMore}
+            >
+              {isReadMore ? "... Read more" : " Show less"}
+            </span>
+          )}
+          {/* {detailDescription}
+
+          <span className="text-blue-500 hover:text-blue-600 hover:font-bold cursor-pointer text-sm">
+            ... Read More
+          </span> */}
         </p>
       </td>
       <td>
