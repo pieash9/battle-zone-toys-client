@@ -10,6 +10,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [sort, setSort] = useState("1");
   const [isLoading, setIsLoading] = useState(true);
+  const [updated,setUpdated] = useState(false)
   // console.log(sort);
 
   //? Delete a toy item
@@ -56,7 +57,7 @@ const MyToys = () => {
         setIsLoading(false);
         setMyToys(data);
       });
-  }, [sort]);
+  }, [sort,updated]);
 
   return (
     <div>
@@ -69,15 +70,16 @@ const MyToys = () => {
 
       {/* sorted option */}
       <div className="my-5">
+        <label className="block mb-3"> Sorted By</label>
         <select
           onChange={handleSelectChange}
           className="input-form w-40"
-          defaultValue="Sorted By"
+          defaultValue="Default"
           required
         >
-          <option disabled>Sorted By</option>
-          <option value="-1">Date</option>
+          {/* <option disabled>Sorted By</option> */}
           <option value="1">Default</option>
+          <option value="-1">Date Added</option>
         </select>
       </div>
 
@@ -123,6 +125,8 @@ const MyToys = () => {
                 toy={toy}
                 i={i}
                 handleDeleteToy={handleDeleteToy}
+                setUpdated={setUpdated}
+                updated={updated}
               />
             ))}
           </tbody>

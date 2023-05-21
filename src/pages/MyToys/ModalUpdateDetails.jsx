@@ -2,7 +2,7 @@
 
 import Swal from "sweetalert2";
 
-const ModalUpdateDetails = ({ toy, toggleVisible }) => {
+const ModalUpdateDetails = ({ toy, toggleVisible,setUpdated,updated }) => {
   const { _id, name, price, availableQuantity, detailDescription } = toy || {};
 
   const handleUpdate = (e) => {
@@ -22,9 +22,10 @@ const ModalUpdateDetails = ({ toy, toggleVisible }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          setUpdated(!updated)
           Swal.fire({
             icon: "success",
-            title: "Toy added successfully",
+            title: "Toy Update success",
           });
         } else {
           Swal.fire({

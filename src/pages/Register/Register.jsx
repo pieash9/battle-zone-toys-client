@@ -28,10 +28,13 @@ const Login = () => {
     console.log(name, email, password, photoURL);
 
     if (password.length < 6) {
-      setError("Password Must be more than 6 characters");
+      setError("Password should be more than 6 characters");
       return;
     } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
       setError("Password should have at least one Number");
+      return;
+    } else if (!/(?=.*[A-Z])/.test(password)) {
+      setError("Password should have at least one Capital letter");
       return;
     } else {
       createUser(email, password)
@@ -51,7 +54,7 @@ const Login = () => {
           console.log(err);
           Swal.fire({
             icon: "error",
-            title: "Something went wrong. Please try again.",
+            title: "Something went wrong. Please use a valid Email.",
           });
         });
     }
@@ -112,7 +115,7 @@ const Login = () => {
               required
             />
             <small className="text-gray-500">
-              Password must be more than 6 characters and at least one number
+            Password should be at least 6 characters long and include at least one number and one capital letter.
             </small>
             <div className="absolute mt-12 right-5 cursor-pointer">
               {show ? (

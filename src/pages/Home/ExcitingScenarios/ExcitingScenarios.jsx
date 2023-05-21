@@ -34,12 +34,12 @@ const ExcitingScenarios = () => {
             <img
               src="https://i.ibb.co/cTfPVvT/image.png"
               alt=""
-              className="absolute rounded -top-10 md:-top-16 -left-5 md:left-0 w-32 h-auto md:w-40 lg:w-48"
+              className="absolute rounded -top-10 md:-top-16 -left-2 md:left-0 w-32 h-auto md:w-40 lg:w-48"
             />
             <img
               src="https://i.ibb.co/Jrh2Tx2/image.png"
               alt=""
-              className="absolute rounded bottom-0   md:-bottom-5 -right-5 md:-right-6 w-32 h-auto md:w-40 lg:w-48"
+              className="absolute rounded bottom-0   md:-bottom-5 -right-2 md:-right-6 w-32 h-auto md:w-40 lg:w-48"
             />
           </div>
 

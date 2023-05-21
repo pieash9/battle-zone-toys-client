@@ -5,10 +5,8 @@ import { AiFillDelete } from "react-icons/ai";
 import ModalUpdateDetails from "./ModalUpdateDetails";
 import { useState } from "react";
 
-
-const MyToyTableRow = ({ toy, i,handleDeleteToy }) => {
-
-  const {_id, pictureURL, name, detailDescription, availableQuantity, price } =
+const MyToyTableRow = ({ toy, i, handleDeleteToy, setUpdated, updated }) => {
+  const { _id, pictureURL, name, detailDescription, availableQuantity, price } =
     toy || {};
   const [visible, setVisible] = useState(false);
 
@@ -60,9 +58,14 @@ const MyToyTableRow = ({ toy, i,handleDeleteToy }) => {
           >
             ✕
           </Button>
-          
+
           {/* Modal components */}
-          <ModalUpdateDetails toy={toy} toggleVisible={toggleVisible} />
+          <ModalUpdateDetails
+            toy={toy}
+            toggleVisible={toggleVisible}
+            setUpdated={setUpdated}
+            updated={updated}
+          />
         </Modal>
       </td>
       <td>

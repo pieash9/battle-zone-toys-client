@@ -18,7 +18,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
           }
-          style={{ backgroundColor: 'transparent' }} 
+          style={{ backgroundColor: "transparent" }}
           to="/"
         >
           Home
@@ -29,7 +29,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
           }
-          style={{ backgroundColor: 'transparent' }} 
+          style={{ backgroundColor: "transparent" }}
           to="/allToys"
         >
           All Toys
@@ -40,7 +40,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
           }
-          style={{ backgroundColor: 'transparent' }} 
+          style={{ backgroundColor: "transparent" }}
           to="/blogs"
         >
           Blogs
@@ -51,7 +51,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
           }
-          style={{ backgroundColor: 'transparent' }} 
+          style={{ backgroundColor: "transparent" }}
           to="/myToys"
         >
           My Toys
@@ -62,7 +62,7 @@ const NavBar = () => {
           className={({ isActive }) =>
             isActive ? "text-blue-500 font-semibold" : "hover:text-blue-500"
           }
-          style={{ backgroundColor: 'transparent' }} 
+          style={{ backgroundColor: "transparent" }}
           to="/addAToy"
         >
           Add A Toy
@@ -71,7 +71,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar justify-between bg-base-100">
+    <div className="navbar justify-between bg-base-100 sticky top-0 z-50 !py-3">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -97,14 +97,18 @@ const NavBar = () => {
             {navItems}
           </ul>
         </div>
-        <img
-          className="md:w-20 w-16"
-          src="https://i.ibb.co/ft8gVhY/image-2-Ihtuhl3-transformed.png"
-          alt=""
-        />
-        <h3 className="font-semibold text-gray-700 text-lg  md:text-2xl ml-0.5 md:ml-2 text-center">
-          <span className="whitespace-nowrap">Battle Zone</span> Toys
-        </h3>
+        <Link to="/">
+          <img
+            className="md:w-20 w-16"
+            src="https://i.ibb.co/ft8gVhY/image-2-Ihtuhl3-transformed.png"
+            alt=""
+          />
+        </Link>
+        <Link to="/">
+          <h3 className="font-semibold text-gray-700 text-lg  md:text-2xl ml-0.5 md:ml-2 text-center">
+            <span className="whitespace-nowrap">Battle Zone</span> Toys
+          </h3>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium">{navItems}</ul>
