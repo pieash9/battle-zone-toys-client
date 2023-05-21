@@ -4,7 +4,6 @@ import { Button, Modal } from "react-daisyui";
 import { AiFillDelete } from "react-icons/ai";
 import ModalUpdateDetails from "./ModalUpdateDetails";
 import { useState } from "react";
-import ReadMoreReact from "read-more-react/dist/components/ReadMoreReact";
 
 const MyToyTableRow = ({ toy, i, handleDeleteToy, setUpdated, updated }) => {
   const { _id, pictureURL, name, detailDescription, availableQuantity, price } =
