@@ -23,8 +23,8 @@ Welcome to the Battle Zone Toys project! This is a web application that offers a
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/battle-zone-toys.git`
-2. Navigate to the project directory: `cd battle-zone-toys`
+1. Clone the repository: `git clone https://github.com/pieash9/battle-zone-toys-client`
+2. Navigate to the project directory: `cd battle-zone-toys-client`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run dev`
 5. Open your browser and visit: `http://localhost:5173`
